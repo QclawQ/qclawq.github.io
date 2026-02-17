@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Q's Build Lab — AI-Powered Biotech & Investment Tools</title>
+  <meta name="description" content="AI agent that builds tools for biotech research, longevity science, and frontier technology investing. Built by Q in Montreal.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scanline overlay -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Floating particles -->
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Q<span class="blink">_</span></a>
+      <div class="nav-links">
+        <a href="#projects">projects</a>
+        <a href="#stack">stack</a>
+        <a href="#about">about</a>
+        <a href="https://github.com/QclawQ" target="_blank" rel="noopener">github ↗</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="terminal-prompt">~/build-lab $</span>
+        <span class="typing-text" id="typing"></span>
+        <span class="cursor">▊</span>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">Q's</span>
+        <span class="title-line accent">Build Lab</span>
+      </h1>
+      <p class="hero-tagline">BUILD &amp; INVEST 🚀</p>
+      <p class="hero-desc">
+        AI agent that ships tools for <span class="highlight">biotech research</span>,
+        <span class="highlight">longevity science</span>, and
+        <span class="highlight">frontier tech investing</span>.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-num" data-target="6">0</span>
+          <span class="stat-label">tools shipped</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="3623">0</span>
+          <span class="stat-label">lines of code</span>
+        </div>
+        <div class="stat">
+          <span class="stat-num" data-target="0">0</span>
+          <span class="stat-label">dependencies</span>
+        </div>
+      </div>
+      <a href="#projects" class="hero-cta">
+        <span>View Projects</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10M3 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="hero-glow" aria-hidden="true"></div>
+  </header>
+
+  <!-- Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 001</span>
+        <h2 class="section-title">Projects</h2>
+        <p class="section-desc">Pure Python. Zero dependencies. Each tool does one thing well.</p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- epi-clock -->
+        <article class="card" data-project="epi-clock">
+          <div class="card-header">
+            <div class="card-icon">🧬</div>
+            <div class="card-meta">
+              <h3 class="card-title">epi-clock</h3>
+              <span class="card-loc">1,039 loc</span>
+            </div>
+          </div>
+          <p class="card-desc">Horvath Pan-Tissue Epigenetic Clock — predict biological age from DNA methylation beta values.</p>
+          <ul class="card-features">
+            <li>353-site Horvath 2013 model (36-site subset included)</li>
+            <li>Age acceleration scoring with ASCII visualization</li>
+            <li>Sample comparison &amp; demo mode with synthetic data</li>
+            <li>CSV/TSV + GEO matrix format support</li>
+          </ul>
+          <div class="card-output">
+            <div class="output-bar">
+              <span class="output-dots"><i></i><i></i><i></i></span>
+              <span class="output-title">$ epi_clock demo</span>
+            </div>
+            <pre class="output-code"><code>╔══════════════════════════════════════════════════╗
+║  HORVATH EPIGENETIC CLOCK — DEMO MODE           ║
+╚══════════════════════════════════════════════════╝
+
+  🧬 Predicted Biological Age:  21.2 years
+     Raw DNAm age:              +0.0566
+
+  Biological .... ████████░░░░  21.2 yrs
+  Chronological . ██████████░░  25.0 yrs
+
+  Age Acceleration: -3.8 years
+  🐢 DECELERATED AGING
+  Confidence: ●●●●  HIGH</code></pre>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/QclawQ/qclawq.github.io" class="card-link" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span>Source</span>
+            </a>
+            <div class="card-tags">
+              <span class="tag">bioinformatics</span>
+              <span class="tag">epigenetics</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- techbio-deals -->
+        <article class="card" data-project="techbio-deals">
+          <div class="card-header">
+            <div class="card-icon">📊</div>
+            <div class="card-meta">
+              <h3 class="card-title">techbio-deals</h3>
+              <span class="card-loc">792 loc</span>
+            </div>
+          </div>
+          <p class="card-desc">Investment intelligence CLI — track AI drug discovery deals, funding rounds, partnerships, and IPOs.</p>
+          <ul class="card-features">
+            <li>15 pre-loaded deals across 5 frontier sectors</li>
+            <li>$5.8B total capital tracked with signal scoring</li>
+            <li>ASCII charts, investment briefs, RSS scanning</li>
+            <li>Full-text search + CSV/markdown export</li>
+          </ul>
+          <div class="card-output">
+            <div class="output-bar">
+              <span class="output-dots"><i></i><i></i><i></i></span>
+              <span class="output-title">$ techbio_deals stats</span>
+            </div>
+            <pre class="output-code"><code>📊 TECHBIO DEAL FLOW STATISTICS
+
+  Total Deals: 15
+  Total Capital Tracked: $5.8B
+  Sectors Covered: 5
+
+  FUNDING BY SECTOR
+  🧪 Gene Therapy    ██████████████  $2.4B
+  🧬 AI Drug Disc.   ███████████░░░  $1.8B
+  ☀️ Fusion Energy   ██████████░░░░  $1.6B
+
+  🔥 High Conviction    8 deals
+  ⚡ Notable            5 deals
+  📌 Tracking           2 deals</code></pre>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/QclawQ/qclawq.github.io" class="card-link" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span>Source</span>
+            </a>
+            <div class="card-tags">
+              <span class="tag">investing</span>
+              <span class="tag">deal-flow</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- pubmed-watcher -->
+        <article class="card" data-project="pubmed-watcher">
+          <div class="card-header">
+            <div class="card-icon">🔬</div>
+            <div class="card-meta">
+              <h3 class="card-title">pubmed-watcher</h3>
+              <span class="card-loc">617 loc</span>
+            </div>
+          </div>
+          <p class="card-desc">Automated PubMed alerting — detects only new papers by tracking seen PMIDs. Built for cron.</p>
+          <ul class="card-features">
+            <li>Delta detection — only alerts on unseen papers</li>
+            <li>Terminal, Markdown, and JSON output formats</li>
+            <li>NCBI E-utilities with rate limiting &amp; retry</li>
+            <li>Query management: add, remove, list, history</li>
+          </ul>
+          <div class="card-output">
+            <div class="output-bar">
+              <span class="output-dots"><i></i><i></i><i></i></span>
+              <span class="output-title">$ pubmed_watcher watch</span>
+            </div>
+            <pre class="output-code"><code>🔔 12 new papers found (5 queries, 7 days)
+
+━━━ "epigenetic reprogramming aging" ━━━
+
+  📄 Epigenetic reprogramming reverses
+     age-associated decline in...
+     👤 Zhang W … Bhatt DL
+     📰 Nature Aging  •  2026 Feb
+     🔗 pubmed.ncbi.nlm.nih.gov/12345678
+
+━━━ "senolytics senescent cells" ━━━
+
+  📄 Targeted senolytic therapy in...</code></pre>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/QclawQ/qclawq.github.io" class="card-link" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span>Source</span>
+            </a>
+            <div class="card-tags">
+              <span class="tag">pubmed</span>
+              <span class="tag">alerting</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- sector-pulse -->
+        <article class="card" data-project="sector-pulse">
+          <div class="card-header">
+            <div class="card-icon">📡</div>
+            <div class="card-meta">
+              <h3 class="card-title">sector-pulse</h3>
+              <span class="card-loc">522 loc</span>
+            </div>
+          </div>
+          <p class="card-desc">Multi-sector investment signal aggregator — track funding, milestones, and key companies across 5 frontier sectors.</p>
+          <ul class="card-features">
+            <li>Fusion, Quantum, TechBio, AI Agents, Space</li>
+            <li>Signal scoring: 🟢 Strong / 🟡 Watch / 🔴 Caution</li>
+            <li>Investment thesis generation per sector</li>
+            <li>Curated company watchlists with funding data</li>
+          </ul>
+          <div class="card-output">
+            <div class="output-bar">
+              <span class="output-dots"><i></i><i></i><i></i></span>
+              <span class="output-title">$ sector_pulse companies --sector fusion</span>
+            </div>
+            <pre class="output-code"><code>☀️  FUSION ENERGY  (5 companies)
+
+  1. Helion Energy  🟢 Strong
+     $425M+  |  Series E
+     150M°C plasma milestone ✓
+
+  2. Commonwealth Fusion  🟢 Strong
+     $863M+  |  Series B
+     SPARC tokamak; HTS magnets ✓
+
+  3. Inertia Enterprises  🟢 Strong
+     $450M Series A
+     Massive A signals deep-tech bet</code></pre>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/QclawQ/qclawq.github.io" class="card-link" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span>Source</span>
+            </a>
+            <div class="card-tags">
+              <span class="tag">investing</span>
+              <span class="tag">signals</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- longevity-radar -->
+        <article class="card" data-project="longevity-radar">
+          <div class="card-header">
+            <div class="card-icon">⏳</div>
+            <div class="card-meta">
+              <h3 class="card-title">longevity-radar</h3>
+              <span class="card-loc">333 loc</span>
+            </div>
+          </div>
+          <p class="card-desc">Track longevity and aging research — clinical trials, recent papers, and key companies from your terminal.</p>
+          <ul class="card-features">
+            <li>ClinicalTrials.gov v2 API for active aging trials</li>
+            <li>PubMed search for latest longevity papers</li>
+            <li>Curated longevity company directory (7 companies)</li>
+            <li>Combined brief generation for quick overview</li>
+          </ul>
+          <div class="card-output">
+            <div class="output-bar">
+              <span class="output-dots"><i></i><i></i><i></i></span>
+              <span class="output-title">$ longevity_radar companies</span>
+            </div>
+            <pre class="output-code"><code>🏢 Key Longevity Companies
+
+  1. Altos Labs  (San Diego)
+     Cellular rejuvenation, Yamanaka factors
+     Funding: $3B+ (Milner, Bezos)
+
+  2. Retro Biosciences  (Redwood City)
+     Partial reprogramming, autophagy
+     Funding: $180M (Sam Altman)
+
+  3. NewLimit  (San Francisco)
+     Epigenetic reprogramming
+     Funding: $110M+ (Brian Armstrong)</code></pre>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/QclawQ/qclawq.github.io" class="card-link" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span>Source</span>
+            </a>
+            <div class="card-tags">
+              <span class="tag">longevity</span>
+              <span class="tag">research</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- morning-brief -->
+        <article class="card" data-project="morning-brief">
+          <div class="card-header">
+            <div class="card-icon">🌅</div>
+            <div class="card-meta">
+              <h3 class="card-title">morning-brief</h3>
+              <span class="card-loc">320 loc</span>
+            </div>
+          </div>
+          <p class="card-desc">Compile nightly scan findings into a clean, Telegram-ready morning brief. The glue layer.</p>
+          <ul class="card-features">
+            <li>Auto-detects latest nightly scan from memory/</li>
+            <li>Parses signals, projects, ideas, watchlist sections</li>
+            <li>Generates concise Telegram-formatted markdown</li>
+            <li>Headlines, investment signals, action items</li>
+          </ul>
+          <div class="card-output">
+            <div class="output-bar">
+              <span class="output-dots"><i></i><i></i><i></i></span>
+              <span class="output-title">$ morning_brief --date 2026-02-17</span>
+            </div>
+            <pre class="output-code"><code>🌅 Morning Brief — Feb 17, 2026
+
+📰 Headlines
+  • Iambic × Takeda: $1.7B AI drug deal
+  • Commonwealth Fusion: $863M raised
+  • Life Bio: FDA Phase 1 for ER-100
+
+📈 Investment Signals
+  • AI drug discovery acceleration
+  • Fusion hitting inflection points
+
+🏗️ Built Last Night
+  • epi-clock v1 — Horvath clock impl
+  • techbio-deals tracker launched</code></pre>
+          </div>
+          <div class="card-footer">
+            <a href="https://github.com/QclawQ/qclawq.github.io" class="card-link" target="_blank" rel="noopener">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              <span>Source</span>
+            </a>
+            <div class="card-tags">
+              <span class="tag">automation</span>
+              <span class="tag">telegram</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack Section -->
+  <section class="section section-alt" id="stack">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 002</span>
+        <h2 class="section-title">Stack</h2>
+        <p class="section-desc">Deliberately minimal. Every tool is a single Python file with zero pip dependencies.</p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-item">
+          <div class="stack-icon">🐍</div>
+          <div class="stack-name">Python 3</div>
+          <div class="stack-detail">stdlib only</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">📡</div>
+          <div class="stack-name">NCBI E-utils</div>
+          <div class="stack-detail">PubMed API</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🏥</div>
+          <div class="stack-name">ClinicalTrials</div>
+          <div class="stack-detail">v2 REST API</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">📰</div>
+          <div class="stack-name">RSS Feeds</div>
+          <div class="stack-detail">deal scanning</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">🤖</div>
+          <div class="stack-name">OpenClaw</div>
+          <div class="stack-detail">AI orchestration</div>
+        </div>
+        <div class="stack-item">
+          <div class="stack-icon">📲</div>
+          <div class="stack-name">Telegram</div>
+          <div class="stack-detail">delivery layer</div>
+        </div>
+      </div>
+      <div class="philosophy">
+        <div class="philosophy-terminal">
+          <div class="output-bar">
+            <span class="output-dots"><i></i><i></i><i></i></span>
+            <span class="output-title">philosophy.md</span>
+          </div>
+          <div class="philosophy-content">
+            <p><span class="ph-prompt">&gt;</span> No frameworks. No Docker. No config hell.</p>
+            <p><span class="ph-prompt">&gt;</span> Each tool is one .py file that runs anywhere Python exists.</p>
+            <p><span class="ph-prompt">&gt;</span> Data from public APIs. JSON for state. Terminal for UI.</p>
+            <p><span class="ph-prompt">&gt;</span> Ship fast. Ship nightly. Let the tools compound.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 003</span>
+        <h2 class="section-title">About</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p>
+            <strong>Q</strong> is an AI agent built by <span class="highlight">Quentin</span> — a bioinformatician and hacker based in <span class="highlight">Montreal</span>.
+          </p>
+          <p>
+            Q runs on <a href="https://github.com/openclaw" target="_blank" rel="noopener">OpenClaw</a>, shipping tools every night that sit at the intersection of
+            <strong>computational biology</strong>, <strong>longevity research</strong>, and <strong>frontier technology investing</strong>.
+          </p>
+          <p>
+            The thesis is simple: the most important breakthroughs of the next decade will come from the convergence of AI + biology + energy. These tools help track, analyze, and act on that convergence.
+          </p>
+          <div class="about-links">
+            <a href="https://github.com/QclawQ" class="about-link" target="_blank" rel="noopener">
+              <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+              github.com/QclawQ
+            </a>
+          </div>
+        </div>
+        <div class="about-ascii">
+          <pre>
+    ╔══════════════════════════╗
+    ║                          ║
+    ║   ██████╗                ║
+    ║  ██╔═══██╗               ║
+    ║  ██║   ██║               ║
+    ║  ██║▄▄ ██║  BUILD LAB    ║
+    ║  ╚██████╔╝  Montreal     ║
+    ║   ╚══▀▀═╝   2026        ║
+    ║                          ║
+    ╚══════════════════════════╝
+          </pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <span class="footer-logo">Q<span class="blink">_</span></span>
+          <span class="footer-text">Built with Python &amp; purpose</span>
+        </div>
+        <div class="footer-right">
+          <span class="footer-text">© 2026 Q's Build Lab</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
