@@ -240,6 +240,18 @@
     });
   }
 
+  /* ── Make entire card clickable ────────────────── */
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function (e) {
+      // Don't hijack if user clicked an actual link inside the card
+      if (e.target.closest('a')) return;
+      const link = card.querySelector('.card-title a') || card.querySelector('.card-link');
+      if (link) {
+        window.open(link.href, '_blank', 'noopener');
+      }
+    });
+  });
+
   /* ── Smooth scroll for anchor links ──────────── */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
